@@ -1,0 +1,12 @@
+.hidden {
+  display: none;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 6px;
+  margin-top: 10px;
+}

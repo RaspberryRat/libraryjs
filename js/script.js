@@ -1,7 +1,9 @@
 const myLibrary = [];
 
 const addBookBtn = document.getElementById('add-book-btn')
+const newBookBtn = document.getElementById('new-book-btn')
 const bookShelf = document.getElementById('book-shelf')
+const formContainer = document.getElementById('form-container')
 
 function Book(title, author, pages, haveRead) {
   this.title = title;
@@ -43,4 +45,8 @@ myLibrary.forEach((book) => {
   list.appendChild(read);
 
 
+});
+
+newBookBtn.addEventListener('click', () => {
+  formContainer.classList.toggle('hidden')
 });
