@@ -10,4 +10,7 @@ function Book(title, author, pages, haveRead) {
 
 function addBookToLibrary() {
   // take input add to library
+  // variable to call book function
+  // take new varialbe and add to mylibrary constant
+
 };
