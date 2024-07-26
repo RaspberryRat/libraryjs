@@ -10,3 +10,21 @@ form {
   gap: 6px;
   margin-top: 10px;
 }
+
+.book-shelf {
+  display: grid;
+  grid-template-columns: 3;
+
+}
+
+.book-shelf>ul {
+  outline: 1px solid black;
+  width: 150px;
+  height: auto;
+  padding: 8px;
+  list-style: none;
+}
+
+.book-shelf>ul>li {
+  margin-bottom: 6px;
+}

@@ -14,15 +14,23 @@ function Book(title, author, pages, haveRead) {
 };
 
 function addBookToLibrary(event) {
-  let title = document.getElementById('title').value;
-  let author = document.getElementById('author').value;
-  let pages = document.getElementById('page-count').value;
-  let haveRead = document.getElementById('have-read').checked;
+  let title = document.getElementById('title');
+  let author = document.getElementById('author');
+  let pages = document.getElementById('page-count');
+  let haveRead = document.getElementById('have-read');
   event.preventDefault();
 
-  let newBook = new Book(title, author, pages, haveRead);
+  let newBook = new Book(title.value, author.value, pages.value, haveRead.checked);
   myLibrary.push(newBook);
   printBooks()
+  clearForm(title, author, pages, haveRead);
+};
+
+function clearForm(text1, text2, num, checkBox) {
+  text1.value = '';
+  text2.value = '';
+  num.value = '';
+  checkBox.checked = false;
 };
 
 const book1 = new Book('The Hobbit', 'J.R.R Tolkien', 355, true)
