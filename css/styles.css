@@ -13,18 +13,35 @@ form {
 
 .book-shelf {
   display: grid;
-  grid-template-columns: 3;
+  grid-template-columns: repeat(3, max(200px, 25%));
+  font-size: 20px;
+  gap: 25px;
 
 }
 
 .book-shelf>ul {
   outline: 1px solid black;
-  width: 150px;
-  height: auto;
+  width: 200px;
+  height: calc(200px * 1.2);
   padding: 8px;
   list-style: none;
+
+  background-image: url(/images/leather-texture.png);
+  background-position: fixed;
+  background-size: 900px 900px;
+  border-radius: 7px;
+  padding: 20px 0 0 20px;
 }
 
 .book-shelf>ul>li {
-  margin-bottom: 6px;
+  background-image: url(/images/gold-texture.png);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-position: fixed;
+  background-size: 900px 900px;
+}
+
+.book-shelf>ul>li {
+  margin-bottom: 30px;
 }
