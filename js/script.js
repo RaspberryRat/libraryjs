@@ -1,10 +1,10 @@
 const myLibrary = [];
 let libraryIndex = 0
 
-const addBookBtn = document.getElementById('add-book-btn')
-const newBookBtn = document.getElementById('new-book-btn')
-const bookShelf = document.getElementById('book-shelf')
-const formContainer = document.getElementById('form-container')
+const addBookBtn = document.getElementById('add-book-btn');
+const newBookBtn = document.getElementById('new-book-btn');
+const bookShelf = document.getElementById('book-shelf');
+const formContainer = document.getElementById('form-container');
 
 function Book(title, author, pages, haveRead) {
   this.title = title;
@@ -44,6 +44,7 @@ function printBooks() {
     let book = myLibrary[libraryIndex];
 
     let list = document.createElement('ul');
+    list.className = `book-${libraryIndex}`
     bookShelf.appendChild(list);
 
     let title = document.createElement('li');
@@ -61,8 +62,13 @@ function printBooks() {
     let read = document.createElement('li');
     read.innerHTML = `Read book? ${book.haveRead}`;
     list.appendChild(read);
+
+    let delBtn = document.createElement('button')
+    delBtn.innerHTML = "Remove Book"
+    list.appendChild(delBtn);
   };
 };
+
 newBookBtn.addEventListener('click', () => {
   formContainer.classList.toggle('hidden')
 });
