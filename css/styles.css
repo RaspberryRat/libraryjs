@@ -31,6 +31,7 @@ form {
   background-size: 900px 900px;
   border-radius: 7px;
   padding: 20px 0 0 20px;
+  /* position: absolute; */
 }
 
 .book-shelf>ul>li {
@@ -44,4 +45,15 @@ form {
 
 .book-shelf>ul>li {
   margin-bottom: 30px;
+}
+
+.del-book-btn {
+  position: relative;
+  bottom: 10px;
+  left: 30px;
+  border-radius: 10px;
+  border: 2px solid white;
+  background-color: rgb(160, 102, 165);
+  color: white;
+  padding: 4px;
 }
