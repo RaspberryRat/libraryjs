@@ -104,13 +104,11 @@ function toggleReadStatus(event) {
   let book = button.closest('.book');
   let bookClass = Array.from(book.classList).find(element => element.startsWith('book-'));
   let bookIndex = bookClass.charAt(bookClass.length - 1);
-  console.log(myLibrary[bookIndex].haveRead);
   if (myLibrary[bookIndex].haveRead === true) {
     myLibrary[bookIndex].haveRead = false;
   } else {
     myLibrary[bookIndex].haveRead = true;
   }
-  console.log(myLibrary[bookIndex].haveRead);
   reprintBooks();
 };
 

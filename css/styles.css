@@ -33,6 +33,10 @@ form {
   padding: 20px 0 0 20px;
 }
 
+.book {
+  max-width: 200px;
+}
+
 .book-shelf>div>ul>li {
   background-image: url(/images/gold-texture.png);
   background-clip: text;
