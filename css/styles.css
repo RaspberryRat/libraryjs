@@ -71,3 +71,21 @@ form {
   justify-content: space-between;
   padding-left: 10px;
 }
+
+.del-book-btn:hover {
+  background-color: rgb(237, 157, 244);
+
+}
+
+.read-book-btn:hover {
+  background-color: rgb(122, 104, 222);
+}
+
+.del-book-btn:active {
+  background-color: rgb(63, 19, 67);
+
+}
+
+.read-book-btn:active {
+  background-color: rgb(31, 21, 88);
+}
