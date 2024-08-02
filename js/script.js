@@ -11,6 +11,13 @@ function Book(title, author, pages, haveRead) {
   this.author = author;
   this.pages = pages;
   this.haveRead = haveRead;
+  this.toggleRead = function () {
+    if (this.haveRead === true) {
+      this.haveRead = false
+    } else {
+      this.haveRead = true
+    };
+  };
 };
 
 function addBookToLibrary(event) {
@@ -105,11 +112,7 @@ function toggleReadStatus(event) {
   let book = button.closest('.book');
   let bookClass = Array.from(book.classList).find(element => element.startsWith('book-'));
   let bookIndex = bookClass.charAt(bookClass.length - 1);
-  if (myLibrary[bookIndex].haveRead === true) {
-    myLibrary[bookIndex].haveRead = false;
-  } else {
-    myLibrary[bookIndex].haveRead = true;
-  }
+  myLibrary[bookIndex].toggleRead();
   reprintBooks();
 };
 
