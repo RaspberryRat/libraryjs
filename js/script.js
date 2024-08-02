@@ -44,7 +44,7 @@ function printBooks() {
     let book = myLibrary[libraryIndex];
 
     let list = document.createElement('ul');
-    list.className = `book-${libraryIndex}`
+    list.className = `book-${libraryIndex} book`;
     bookShelf.appendChild(list);
 
     let title = document.createElement('li');
@@ -64,9 +64,11 @@ function printBooks() {
     list.appendChild(read);
 
     let delBtn = document.createElement('button')
-    delBtn.innerHTML = "Remove Book"
+    delBtn.innerHTML = "Remove Book";
+    delBtn.className = 'del-book-btn';
     list.appendChild(delBtn);
   };
+  loadDelBtns();
 };
 
 newBookBtn.addEventListener('click', () => {
@@ -76,3 +78,20 @@ newBookBtn.addEventListener('click', () => {
 addBookBtn.addEventListener('click', addBookToLibrary, false);
 
 printBooks();
+
+function deleteBook(event) {
+  let button = event.target;
+  let book = button.closest('.book');
+  if (book) {
+    book.remove()
+  }
+
+};
+
+function loadDelBtns() {
+  let delBookBtns = document.querySelectorAll('.del-book-btn');
+
+  delBookBtns.forEach(btn => {
+    btn.addEventListener('click', deleteBook);
+  });
+};
