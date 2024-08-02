@@ -19,7 +19,7 @@ form {
 
 }
 
-.book-shelf>ul {
+.book-shelf>div>ul {
   outline: 1px solid black;
   width: 200px;
   height: calc(200px * 1.2);
@@ -31,10 +31,9 @@ form {
   background-size: 900px 900px;
   border-radius: 7px;
   padding: 20px 0 0 20px;
-  /* position: absolute; */
 }
 
-.book-shelf>ul>li {
+.book-shelf>div>ul>li {
   background-image: url(/images/gold-texture.png);
   background-clip: text;
   -webkit-background-clip: text;
@@ -43,17 +42,28 @@ form {
   background-size: 900px 900px;
 }
 
-.book-shelf>ul>li {
+.book-shelf>div>ul>li {
   margin-bottom: 30px;
 }
 
-.del-book-btn {
-  position: relative;
-  bottom: 10px;
-  left: 30px;
+.del-book-btn,
+.read-book-btn {
   border-radius: 10px;
   border: 2px solid white;
-  background-color: rgb(160, 102, 165);
   color: white;
   padding: 4px;
+}
+
+.del-book-btn {
+  background-color: rgb(160, 102, 165);
+}
+
+.read-book-btn {
+  background-color: rgb(52, 37, 139);
+}
+
+.book-btns {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
 }

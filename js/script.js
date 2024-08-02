@@ -43,9 +43,12 @@ function printBooks() {
   for (; libraryIndex < myLibrary.length; libraryIndex++) {
     let book = myLibrary[libraryIndex];
 
+    let div = document.createElement('div');
+    div.className = `book-${libraryIndex} book`;
+    bookShelf.appendChild(div);
+
     let list = document.createElement('ul');
-    list.className = `book-${libraryIndex} book`;
-    bookShelf.appendChild(list);
+    div.appendChild(list);
 
     let title = document.createElement('li');
     title.innerText = `Title: ${book.title}`;
@@ -63,10 +66,19 @@ function printBooks() {
     read.innerHTML = `Read book? ${book.haveRead}`;
     list.appendChild(read);
 
-    let delBtn = document.createElement('button')
+    let btns = document.createElement('div');
+    btns.className = 'book-btns'
+    div.appendChild(btns);
+
+    let delBtn = document.createElement('button');
     delBtn.innerHTML = "Remove Book";
     delBtn.className = 'del-book-btn';
-    list.appendChild(delBtn);
+    btns.appendChild(delBtn);
+
+    let readBtn = document.createElement('button');
+    readBtn.innerHTML = 'Read Book?';
+    readBtn.className = 'read-book-btn';
+    btns.appendChild(readBtn);
   };
   loadDelBtns();
 };
@@ -85,13 +97,41 @@ function deleteBook(event) {
   if (book) {
     book.remove()
   }
+};
+
+function toggleReadStatus(event) {
+  let button = event.target;
+  let book = button.closest('.book');
+  let bookClass = Array.from(book.classList).find(element => element.startsWith('book-'));
+  let bookIndex = bookClass.charAt(bookClass.length - 1);
+  console.log(myLibrary[bookIndex].haveRead);
+  if (myLibrary[bookIndex].haveRead === true) {
+    myLibrary[bookIndex].haveRead = false;
+  } else {
+    myLibrary[bookIndex].haveRead = true;
+  }
+  console.log(myLibrary[bookIndex].haveRead);
+  reprintBooks();
+};
+
+function reprintBooks() {
+  while (bookShelf.firstChild) {
+    bookShelf.removeChild(bookShelf.firstChild);
+  };
+  libraryIndex = 0;
+  printBooks();
 
 };
 
 function loadDelBtns() {
   let delBookBtns = document.querySelectorAll('.del-book-btn');
+  let readBookBtns = document.querySelectorAll('.read-book-btn');
 
   delBookBtns.forEach(btn => {
     btn.addEventListener('click', deleteBook);
+  });
+
+  readBookBtns.forEach(btn => {
+    btn.addEventListener('click', toggleReadStatus);
   });
 };
