@@ -94,9 +94,10 @@ printBooks();
 function deleteBook(event) {
   let button = event.target;
   let book = button.closest('.book');
-  if (book) {
-    book.remove()
-  }
+  let bookClass = Array.from(book.classList).find(element => element.startsWith('book-'));
+  let bookIndex = bookClass.charAt(bookClass.length - 1);
+  myLibrary.splice(bookIndex, 1);
+  reprintBooks();
 };
 
 function toggleReadStatus(event) {
