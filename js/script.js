@@ -6,18 +6,31 @@ const newBookBtn = document.getElementById('new-book-btn');
 const bookShelf = document.getElementById('book-shelf');
 const formContainer = document.getElementById('form-container');
 
-function Book(title, author, pages, haveRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.haveRead = haveRead;
-  this.toggleRead = function () {
+// function Book(title, author, pages, haveRead) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.haveRead = haveRead;
+//   this.toggleRead = function () {
+
+//   };
+// };
+
+class Book {
+  constructor(title, author, pages, haveRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.haveRead = haveRead;
+  }
+
+  toggleRead() {
     if (this.haveRead === true) {
       this.haveRead = false
     } else {
       this.haveRead = true
     };
-  };
+  }
 };
 
 function addBookToLibrary(event) {
